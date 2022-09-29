@@ -70,7 +70,7 @@ role="button">
         <img src=" {{ asset('img/AdminLTELogo.png') }}"
         alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
         style="opacity: .8">
-        <span class="brand-text font-weight-light">Amsang
+        <span class="brand-text font-weight-light">Tia
         Tech</span>
 </a>
 
