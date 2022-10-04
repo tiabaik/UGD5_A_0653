@@ -117,6 +117,11 @@ class="nav-link">
                         <p> Pegawai</p>
                     </a>
                 </li>
+            <li class="nav-item">
+                <a href="{{ url('golongan') }}"
+class="nav-link">
+                        <i class="nav-icon far fa-circle"></i>
+                        <p> Golongan</p>
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

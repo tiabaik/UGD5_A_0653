@@ -22,3 +22,6 @@ Route::resource('/departemen',
 
 Route::resource('/pegawai',
 \App\Http\Controllers\PegawaiController::class);
+
+Route::resource('/golongan',
+\App\Http\Controllers\GolonganController::class);
