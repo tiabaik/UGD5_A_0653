@@ -30,8 +30,9 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-body">
+                        <a href="{{ route('pegawai.create') }}"class="btn btn-md btn-success mb-3">TAMBAH PEGAWAI</a>
                             <div class="table-responsive p-0">
-                                <table class="table table-hover textnowrap">
+                                <table class="table table-hover textnowrap">
                                     <thead>
                                         <tr>
                                             <th class="text-center">Nomor Induk Pegawai</th>
@@ -42,6 +43,8 @@
                                             <th class="text-center">Gender</th>
                                             <th class="text-center">Tanggal Bergabung</th>
                                             <th class="text-center">Status</th>
+                                            <th class="text-center">Aksi</th>
+
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -55,8 +58,21 @@
                                             <td class="text-center">{{ $item->gender==1? "laki-laki":"perempuan" }}</td>
                                             <td class="text-center">{{ date('d F Y', strtotime($item->tanggal_bergabung ) ) }}</td>
                                             <td class="text-center">{{ $item->status==1? "aktif":"tidak aktif" }}</td>
+                                            <td class="text-center">{{ $item->aksi }}
+                                            <form onsubmit="return confirm('Apakah Anda Yakin ?');" 
+                                                action="/pegawai/{{$item->id}}" 
+                                                method="POST">
+                                                <a href="/pegawai/{{$item->id}}/edit" class="btn btn-sm btn-primary">EDIT</a>
+                                                @csrf 
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-sm btn-danger">Hapus</button> 
+
+                                                
+                                            </form> 
+                                            </td>
                                         </tr>
                                         @empty
+
                                         <div class="alert alert-danger">
                                             Data Pegawai belum tersedia
                                         </div>
