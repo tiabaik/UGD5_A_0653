@@ -32,6 +32,8 @@ class DepartemenController extends Controller
     {
         return view('departemen.create');
     }
+
+    
     
     /**
     * store

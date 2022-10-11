@@ -1,4 +1,5 @@
 @extends('dashboard')
+
 @section('content')
     <div class="content-header">
         <div class="container-fluid">
@@ -79,11 +80,5 @@
     </div>
     <!-- /.container-fluid -->
 </div>
-<script>
-// (function() {
-        @if(Session::has('success'))
-        toastr.success("{{session('success') }}", "BERHASIL!");
-        @endif
-    // })();
-</script>
+
 @endsection

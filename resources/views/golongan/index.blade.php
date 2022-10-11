@@ -5,13 +5,13 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Golongan</h1>
+                    <h1 class="m-0">Gologan</h1>
                 </div>
                 <!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item">
-                            <a href="{{ url('pegawai')}}">Golongan</a>
+                            <a href="{{ url('departemen')}}">Golongan</a>
                         </li>
                         <li class="breadcrumb-item active">Index</li>
                     </ol>
@@ -30,8 +30,9 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-body">
+                            <a href="{{ route('golongan.create') }}"class="btn btn-md btn-success mb-3">TAMBAH Golongan</a>
                             <div class="table-responsive p-0">
-                                <table class="table table-hover textnowrap">
+                                <table class="table table-hover textnowrap">
                                     <thead>
                                         <tr>
                                             <th class="text-center">Pegawai Id</th>
@@ -40,6 +41,7 @@
                                             <th class="text-center">Tunjangan Keluarga</th>
                                             <th class="text-center">Tunjangan Transport</th>
                                             <th class="text-center">Tunjangan Makan</th>
+                                            <th class="text-center">Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -51,6 +53,18 @@
                                             <td class="text-center">Rp{{number_format( $item->tunjangan_keluarga, 0, ",", ".") }}</td>
                                             <td class="text-center">Rp{{number_format($item->tunjangan_transport, 0, ",", "." ) }}</td>
                                             <td class="text-center">Rp{{number_format($item->tunjangan_makan, 0, ",", "." )}}</td>
+                                            <td class="text-center">
+                                                <form onsubmit="return confirm('Apakah Anda Yakin ?');" 
+                                                action="{{ route('golongan.destroy', $item->id) }}" 
+                                                method="POST">
+
+                                                    <a href="{{route('golongan.edit', $item->id) }}" class="btn btn-sm btn-primary">EDIT</a>
+                                                    
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit"class="btn btn-sm btn-danger">Hapus</button>
+                                                </form> 
+                                            </td>
                                         </tr>
                                         @empty
                                         <div class="alert alert-danger">
@@ -59,19 +73,19 @@
                                         @endforelse
                                     </tbody>
                                 </table>
-
-                                <div class="d-flex justify-content-center">{!! $golongan -> links()!!}</div>
-
                             </div>
+                            <div class="d-flex justify-content-center">{{!! $golongan -> links()!!}}</div>
                         </div>
-                        <!-- /.card-body -->
-                    </div>
-                    <!-- /.card -->
+                    <!-- /.card-body -->
                 </div>
-                <!-- /.col-md-6 -->
+                <!-- /.card -->
             </div>
-            <!-- /.row -->
+            <!-- /.col-md-6 -->
         </div>
-        <!-- /.container-fluid -->
+        <!-- /.row -->
     </div>
+    <!-- /.container-fluid -->
+</div>
+
 @endsection
+

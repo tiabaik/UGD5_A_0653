@@ -15,12 +15,12 @@ class Golongan extends Model
      * @var array 
      */
     protected $fillable = [
-        'nama_golongan',
+        'nomor_golongan',
         'pegawai_id',
         'gaji_pokok',
         'tunjangan_keluarga',
         'tunjangan_transport',
-        'tunjangan_makanan',
+        'tunjangan_makan',
         ]; 
 
     public function golongan() {

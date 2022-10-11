@@ -104,7 +104,7 @@
 
                         <div class="form-group col-md-6"> 
                                 <label class="font-weight-bold">Tanggal Bergabung</label> 
-                                <input type="text" class="form-control @error('tanggal_bergabung') is-invalid @enderror" 
+                                <input type="date" class="form-control @error('tanggal_bergabung') is-invalid @enderror" 
                                 name="tanggal_bergabung" value="{{ old('tanggal_bergabung') }}" placeholder="Masukkan tanggtal"> 
                                 @error('tanggal_bergabung') 
                                 <div class="invalid-feedback"> 
@@ -157,4 +157,9 @@
 </div> 
 <!-- /.container-fluid --> 
 </div> 
+<script>
+    @if(Session::has('success'))
+    toastr.success("{{session('success') }}", "BERHASIL!");
+    @endif
+</script>
 @endsection
